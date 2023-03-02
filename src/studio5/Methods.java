@@ -1,8 +1,13 @@
 package studio5;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Array;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Methods {
+	
 
 	/**
 	 * Compute the (Euclidean) distance between two points.
@@ -14,11 +19,16 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
+		double distance = Math.sqrt((Math.pow((y2-y1), 2)) + (Math.pow((x2-x1), 2)));
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
 		
 		return distance;
 	}
+//	public static void main(String[] args) {
+//		
+//		distanceBetween(x1, x2, y1, y1);
+//		
+//	}
 
 	/**
 	 * Draw a bull's eye at the given location with the given radius.
@@ -34,8 +44,15 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
 		
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledCircle(x, y, radius*.75);
+
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledCircle(x, y, radius*.5);
+		
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledCircle(x, y, radius*.25);
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
@@ -62,6 +79,18 @@ public class Methods {
 	public static String substituteAll(String source, char target, String replacement) {
 		String result = "";
 		// TODO: Finish this method
+//		
+		for (int i=0; i<source.length(); i++)
+		{
+			char ch=source.charAt(i);
+			if (ch==target)
+			{
+				result=result+replacement;
+			}
+			else
+				result=result+ch;
+		}
+		
 		
 		return result;
 	}
@@ -76,6 +105,13 @@ public class Methods {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
 		
+		for(int horseCock = 0; horseCock < values.length; horseCock++)
+		{
+			
+			sum = sum + values[horseCock];
+			
+		}
+			
 		return sum;
 	}
 
@@ -87,10 +123,15 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int values[] = new int[length];// FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
 
-		
+		for(int dungPhamIPAddress = 0; dungPhamIPAddress < length; dungPhamIPAddress++)
+		{
+			
+			values[dungPhamIPAddress] = value;
+			
+		}
 
 		return values;
 	}
